@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ STATIC_URL }}base_style.css" type="text/css" />
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body>
+	<header>My Page</header>
+    <nav>
+        <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/search-form/">Search</a></li>
+            <li><a href="/login/">Login</a></li>
+        </ul>
+    </nav>
+    
+    <div id="content">
+    	{% block content %}{% endblock %}
+    </div>
+    
+    <footer>
+    	<ul>
+            <li><a href="/about/">About Us</a></li>
+    		<li><a href="/contact/">Contact Us</a></li>
+    	</ul>
+    </footer>
+
+</body>
+</html>

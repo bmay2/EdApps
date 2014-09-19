@@ -1,0 +1,63 @@
+{% extends "base.html" %}
+
+<!-- <link rel="stylesheet" href="{{ STATIC_URL }}base_style2.css" type="text/css" /> -->
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<p>Here's the place you search for an app.</p>
+
+<p>
+	<label for="amount">Price range:</label>
+	<input type="text" id="amount" style="border:0; color:#f6931f; font-weight:bold;" />
+</p>
+
+<form action='/search/' method='get'>
+	<ul name='subject'>
+	{% for subject in subjects %}
+		<li><label for="{{ subject }}"/><input type="checkbox" name="subject" value="{{ subject }}" id="{{ subject }}">{{ subject }}</li>
+	{% endfor %}
+	</ul>
+ 
+ 	<ul name='platform'>
+	{% for platform in platforms %}
+		<li><label for="{{ platform }}"/><input type="checkbox" name="platform" value="{{ platform }}" id="{{ platform }}">{{ platform }}</li>
+	{% endfor %}
+	</ul>
+ 
+  	<ul name='rating'>
+	{% for rating in ratings %}
+		<li><label for="{{ rating }}"/><input type="checkbox" name="rating" value="{{ rating }}" id="{{ rating }}">{{ rating }}</li>
+	{% endfor %}
+	</ul>
+
+	<div name='test' class="layout-slider" style="width: 100%">
+		<span style="display: inline-block; width: 400px; padding: 0 5px;">
+			<input type="slider" id="price_slide" name="price" value="20;300" />
+		</span>
+	</div>
+
+<!--   	<ul name='price'>
+	{% for price in prices %}
+	{% if price == 0.0 %}
+		<label for="{{ price }}">
+		<li><input type="checkbox" name="price" value="{{ 0.0 }}" id="{{ price }}">{{ "Free" }}</li>
+	{% else %}
+		<label for="{{ price }}">
+		<li><input type="checkbox" name="price" value="{{ price }}" id="{{ price }}">{{ price }}</li>
+	{% endif %}
+	{% endfor %}
+	</ul> -->
+
+<!--  	<select name='price'>
+	{% for k,v in price %}
+		<option name="{{ k }}">{{ v }}</option>
+	{% endfor %}
+	</select> -->
+	
+	<br>
+	<input type="submit" value="Search!">
+</form>
+
+{% include 'js/test.js' %}
+{% endblock %}

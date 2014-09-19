@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+<!-- <link rel="stylesheet" href="{{ STATIC_URL }}base_style2.css" type="text/css" /> -->
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+<p>Here's the place you search for an app.</p>
+
+<form action='/search/' method='get'>
+	
+	<select name='subject'>
+		<option name="ALL">{{ "--SELECT--" }}</option>
+	{% for subject in subjects %}
+		<option name="{{ subject }}">{{ subject }}</option>
+	{% endfor %}
+	</select>
+ 
+ 	<select name='platform'>
+		<option name="ALL">{{ "--SELECT--" }}</option>
+	{% for platform in platforms %}
+		<option name="{{ platform }}">{{ platform }}</option>
+	{% endfor %}
+	</select>
+ 
+  	<select name='rating'>
+		<option name="ALL">{{ "--SELECT--" }}</option>
+	{% for rating in ratings %}
+		<option name="{{ rating }}">{{ rating }}</option>
+	{% endfor %}
+	</select>
+
+  	<select name='price'>
+		<option name="ALL">{{ "--SELECT--" }}</option>
+	{% for price in prices %}
+	{% if price == 0.0 %}
+		<option name="{{ 0.0 }}">{{ "Free" }}</option>
+	{% else %}
+		<option name="{{ price }}">{{ price }}</option>
+	{% endif %}
+	{% endfor %}
+	</select>
+
+<!--  	<select name='price'>
+	{% for k,v in price %}
+		<option name="{{ k }}">{{ v }}</option>
+	{% endfor %}
+	</select> -->
+	
+	<input type="submit" value="Search!">
+</form>
+
+<script type="text/javascript" src="{{ STATIC_URL }}test.js"></script>
+{% include 'js/test.js' %}
+
+{% endblock %}

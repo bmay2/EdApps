@@ -1,0 +1,85 @@
+body {
+	font-family: Curlzmt; /* old: Futura */
+}
+
+nav {
+  color: blue;
+  background: orange;
+  border-style: solid;
+  border-width: 1px 1px 1px 1px;
+  padding: 2px 2px 2px 2px;
+  margin: 0px;
+  font-size: 10px;
+  text-align: center;
+}
+
+nav h2 {
+  border-style: solid;
+}
+
+nav a:link {
+  text-decoration: none;
+}
+
+nav a:hover {
+  color: yellow;
+}
+
+nav ul {
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  white-space: nowrap;
+}
+
+nav ul li {
+  font-size: 20px;
+  padding: 50px;
+  list-style: none;
+  text-align: center;
+  display: inline;
+}
+
+div#content {
+  position: relative;
+  margin: center;
+  text-align: center;
+}
+
+ul {
+  text-align: left;
+}
+
+img {
+  /* float: left; */
+}
+
+header {
+  font-size: 72px;
+  color: red;
+  background-color: black;
+  text-align: center;
+}
+
+footer {
+  clear: both;
+  text-align: center;
+}
+
+footer ul {
+  list-style: none;
+  white-space: nowrap;
+  text-align: center;
+  margin: 20px;
+  padding: 0px;
+}
+
+footer ul li {
+  display: inline;
+  padding: 20px;
+}
+
+footer a {
+  text-decoration: none;
+  color: green;
+}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load pagination_tags %}
+
+{% block title %}Search Results{% endblock %}
+
+
+
+{% block content %}
+
+{% autopaginate results 25 %}
+{% paginate %}
+	{% for a in results %}
+		<article>
+			{% autoescape off %}
+			<h4>{{ a.name|fix_ampersands }}</h4>
+				<ul>
+					<li>Creator: {{ a.creator }}</li>
+					<li>Subject: {{ a.subject }}</li>
+					{% if a.price == 0.0 %}<li>Price: Free</li>{% else %}<li>Price: ${{ a.price }}</li>{% endif %}
+					<li>Rating: {{ a.rating }} stars</li>
+					<li>Platform: {{ a.platform }}</li>
+					<li>{{ a.link }}</li>
+					<img src="{{ a.artwork }}" />
+				</ul>
+			{% endautoescape %}
+		</article>
+	{% endfor %}
+
+<!-- <div class="pagination">
+    <span class="step-links">
+        {% if results.has_previous %}
+            <a href="?page={{ results.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ results.number }} of {{ results.paginator.num_pages }}
+        </span>
+
+        {% if results.has_next %}
+            <a href="?page={{ results.next_page_number }}">next</a>
+        {% endif %}
+    </span>
+</div> -->
+
+{% paginate %}
+
+{% endblock %}
